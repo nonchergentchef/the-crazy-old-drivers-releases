@@ -4,6 +4,11 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.3 — 11 novembre 2026
+
+- Route folle : des tornades dans la plupart des secteurs de chaque étape. Elles arrivent toujours face aux voitures.
+- L'Ancre devient utile en Route folle.
+
 ### v1.8.2 — 11 novembre 2026
 
 - Nouveautés dans le jeu : bouton en bas à droite du menu, ou touche Y (clavier et manette).
