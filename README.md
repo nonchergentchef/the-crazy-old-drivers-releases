@@ -4,6 +4,11 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.6 — 11 novembre 2026
+
+- Options : nouveau réglage du volume des moteurs, séparé de la musique et des effets (50 % par défaut).
+- Le réglage Effets règle désormais tout sauf les moteurs et la musique.
+
 ### v1.8.5 — 11 novembre 2026
 
 - Sons des véhicules : un moteur par voiture et par catégorie, qui monte dans les tours et passe ses six vitesses.
