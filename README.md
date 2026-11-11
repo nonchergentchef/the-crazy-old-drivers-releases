@@ -4,6 +4,14 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.4 — 11 novembre 2026
+
+- Arrivée : ta place (1er, 2ème…) s'affiche en grand dès que tu passes la ligne, comme le compte à rebours.
+- Nouveau drapeau à damier, agité par un commissaire comme à l'arrivée d'un Grand Prix.
+- Confettis à l'arrivée pour le podium, feux d'artifice en plus pour le vainqueur.
+- Arrivées groupées : drapeau et fête durent au moins 4 secondes après ton arrivée.
+- Podium du championnat : feux d'artifice pour le champion, confettis pour le 2ème et le 3ème.
+
 ### v1.8.3 — 11 novembre 2026
 
 - Route folle : des tornades dans la plupart des secteurs de chaque étape. Elles arrivent toujours face aux voitures.
