@@ -4,6 +4,17 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.5 — 11 novembre 2026
+
+- Sons des véhicules : un moteur par voiture et par catégorie, qui monte dans les tours et passe ses six vitesses.
+- Pneus qui crissent en dérapage (gravier sur terre), chocs contre les murs et accidents, entendus en ligne aussi.
+- Trains : le train à vapeur siffle et halète en approchant, le TGV klaxonne aux passages à niveau.
+- Vent latéral redessiné : bourrasques façon BD avec feuilles et poussière, manche à air à la place de la jauge, et le vent qui souffle plus fort dans les rafales.
+- Le vent revient dans les tirages météo des championnats (de jour) et arrive dans les tronçons de la Route folle.
+- La fumée des dérapages est emportée par le vent.
+- Tempête : un coup de tonnerre à chaque éclair.
+- Feux d'artifice : une détonation par fusée.
+
 ### v1.8.4 — 11 novembre 2026
 
 - Arrivée : ta place (1er, 2ème…) s'affiche en grand dès que tu passes la ligne, comme le compte à rebours.
