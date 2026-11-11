@@ -4,6 +4,12 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.8 — 11 novembre 2026
+
+- Tempête : la foudre vise maintenant les voitures. Un cercle grésillant s'allume au sol juste avant l'impact : la voiture qui s'y trouve quand l'éclair tombe perd l'accélérateur pendant 1 seconde. IA comprises, en ligne aussi.
+- Tunnels : le moteur résonne et s'étouffe sous la voûte, pour toutes les catégories.
+- Correction d'un plantage possible à la création de certains circuits sans voie ferrée possible.
+
 ### v1.8.7 — 11 novembre 2026
 
 - Nouvelle option « Course pure », dans tous les modes : ni améliorations ni boosts, pas de clés ni d'argent sur le circuit (la nitro reste), et on enchaîne les courses sans passer par le garage. Les IA n'ont aucune amélioration non plus.
