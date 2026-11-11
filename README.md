@@ -4,6 +4,15 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.9 — 11 novembre 2026
+
+- Départ : les voitures sont maintenant décalées une par une sur la grille (positions 1, 2, 3, 4), avec un marquage au sol comme sur un vrai circuit.
+- Panne de courant : quand les lampadaires s'éteignent, la nuit devient noire et les phares portent moins loin.
+- Séisme : pendant les secousses, les voitures perdent de l'adhérence et sont bousculées, sous un grondement sourd.
+- Crépuscule : à la nuit tombée, un loup hurle au loin et des cerfs traversent la route ; les percuter fait tourner la voiture et la ralentit.
+- Canicule : des plaques de goudron fondu apparaissent sur la route et freinent les voitures. Tempête de sable : des congères de sable font de même.
+- Route folle : chevrons d'alerte plus nombreux et progressifs avant les ronds-points et les ravins, flèches en dégradé jaune → rouge avant les terre-pleins et chicanes.
+
 ### v1.8.8 — 11 novembre 2026
 
 - Tempête : la foudre vise maintenant les voitures. Un cercle grésillant s'allume au sol juste avant l'impact : la voiture qui s'y trouve quand l'éclair tombe perd l'accélérateur pendant 1 seconde. IA comprises, en ligne aussi.
