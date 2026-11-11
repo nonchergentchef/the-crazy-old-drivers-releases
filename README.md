@@ -4,6 +4,14 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.8.7 — 11 novembre 2026
+
+- Nouvelle option « Course pure », dans tous les modes : ni améliorations ni boosts, pas de clés ni d'argent sur le circuit (la nitro reste), et on enchaîne les courses sans passer par le garage. Les IA n'ont aucune amélioration non plus.
+- Records de Course pure séparés, affichés sous les records normaux dans le Hall of fame, désormais déroulant et accessible à la manette.
+- Écran de partie réorganisé : en ligne, les joueurs et adresses à gauche, les réglages à droite ; en solo, les réglages seuls au centre. Les réglages inutiles pour le format choisi sont masqués.
+- Motos et F1 : son moteur plus grave et plus vivant, avec plus de rapports, des baisses de régime en virage et de légères variations.
+- Route folle : plus de mur invisible en passant d'une route à l'autre d'une fourche.
+
 ### v1.8.6 — 11 novembre 2026
 
 - Options : nouveau réglage du volume des moteurs, séparé de la musique et des effets (50 % par défaut).
