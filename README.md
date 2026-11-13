@@ -4,6 +4,16 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.9.1 — 13 novembre 2026
+
+- Options rangées en quatre onglets : Général, Vidéo, Audio, Contrôles.
+- Musique : volumes séparés pour le menu et la course (+ / − règlent celle qui joue). La musique de course est plus forte et ne baisse plus quand le commentateur parle.
+- Audio : un haut-parleur à côté de chaque réglage fait écouter un extrait de 5 secondes.
+- Eau animée : mer turquoise le long des quais avec écume, vaguelettes et reflets ; courant et écume sur les rivières ; lacs et oasis qui ondulent.
+- Ports : des yachts et des voiliers amarrés le long des quais, en plusieurs couleurs.
+- En ligne : l'adresse affichée quand on héberge est maintenant la bonne, même avec un VPN, Docker ou une machine virtuelle sur le PC.
+- Correction : les vaches et les piétons ne tournent plus sur eux-mêmes quand ils sont coincés entre des arbres.
+
 ### v1.9.0 — 13 novembre 2026
 
 - Nouveau : un commentateur au micro. En ligne, quelques surprises entre habitués…
