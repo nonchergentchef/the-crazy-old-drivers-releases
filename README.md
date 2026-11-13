@@ -4,6 +4,13 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.9.2 — 13 novembre 2026
+
+- Garage : 2 boosts offensifs maximum par course (Nitro, Ressort, Bélier) au lieu de 3. L'argent restant peut aller aux protections.
+- Crépuscule : retiré du super championnat Hypercar, une série sur circuit. Il reste possible en rallye et sur la Route folle.
+- Le loup hurle de façon plus effrayante au crépuscule, avec un écho dans la forêt.
+- Manette : dans les options, gauche / droite passe d'un onglet à l'autre et bas entre dans les réglages. Vidéo et Audio sont de nouveau accessibles.
+
 ### v1.9.1 — 13 novembre 2026
 
 - Options rangées en quatre onglets : Général, Vidéo, Audio, Contrôles.
