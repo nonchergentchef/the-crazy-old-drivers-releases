@@ -4,6 +4,13 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.9.0 — 13 novembre 2026
+
+- Nouveau : un commentateur au micro. En ligne, quelques surprises entre habitués…
+- Départ : un portique de feux au-dessus de la ligne remplace le compte à rebours.
+- Tempête : le cercle d'impact de la foudre est deux fois plus petit.
+- Crépuscule : des panneaux « passage d'animaux » préviennent avant les traversées, et des sangliers se mêlent aux cerfs.
+
 ### v1.8.9 — 11 novembre 2026
 
 - Départ : les voitures sont maintenant décalées une par une sur la grille (positions 1, 2, 3, 4), avec un marquage au sol comme sur un vrai circuit.
