@@ -4,6 +4,11 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.9.3 — 13 novembre 2026
+
+- En ligne : les joueurs connectés n'ont plus de saccades. Toutes les voitures, la leur comprise, avancent maintenant de façon fluide, même sur une connexion Internet.
+- En ligne : moins de données échangées pendant la course. L'hôte et les joueurs doivent tous passer à cette version pour jouer ensemble.
+
 ### v1.9.2 — 13 novembre 2026
 
 - Garage : 2 boosts offensifs maximum par course (Nitro, Ressort, Bélier) au lieu de 3. L'argent restant peut aller aux protections.
