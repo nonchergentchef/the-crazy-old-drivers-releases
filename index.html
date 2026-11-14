@@ -1,0 +1,598 @@
+<!doctype html>
+<!-- Download page, published on the public repository's GitHub Pages by .github/workflows/release.yml,
+     which fills in the __PLACEHOLDERS__ and adds img/background.webp from menu/background.png. -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Crazy Old Drivers</title>
+<meta name="description" content="Un petit jeu de course rétro fait maison. Gratuit, pour Windows, macOS et Linux.">
+<!-- Link previews (Discord, WhatsApp, social networks): crawlers need absolute URLs and a JPEG. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="The Crazy Old Drivers">
+<meta property="og:title" content="The Crazy Old Drivers">
+<meta property="og:description" content="Des vieux bolides, des virages, et zéro pitié entre potes. Petit jeu de course rétro gratuit, pour Windows, macOS et Linux.">
+<meta property="og:url" content="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/">
+<meta property="og:image" content="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="The Crazy Old Drivers : sept bolides rétro sur un circuit, drapeau à damier au vent">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7b733">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #120d0b;
+    --bg-2: #1d1512;
+    --card: #241a16;
+    --line: #3a2b24;
+    --cream: #f4e6c8;
+    --muted: #b9a68a;
+    --red: #d8302a;
+    --red-dark: #9e1f1b;
+    --yellow: #f7b733;
+    --orange: #f08a24;
+    --blue: #2e6fb5;
+    --sky: #7fb2d9;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Old TV scanlines over the whole page */
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,.14) 0 1px, transparent 1px 3px);
+    mix-blend-mode: multiply;
+    z-index: 50;
+  }
+  a { color: var(--yellow); }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  section[id], header[id] { scroll-margin-top: 72px; }
+
+  /* ---------- Sticky nav ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(18,13,11,.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid var(--line);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .topbar nav {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; gap: 8px 20px;
+    padding-block: 10px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .brand {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    font-size: 1.5rem; letter-spacing: .04em;
+    color: var(--yellow); text-decoration: none; white-space: nowrap;
+    text-shadow: 2px 2px 0 var(--red-dark);
+    margin-right: auto;
+  }
+  .topbar ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 4px; overflow-x: auto;
+  }
+  .topbar ul a {
+    display: block; padding: 6px 12px; border-radius: 99px;
+    color: var(--cream); text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap;
+  }
+  .topbar ul a:hover { background: var(--card); color: var(--yellow); }
+  .topbar ul a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 1px; }
+  @media (max-width: 640px) {
+    .brand { display: none; }
+    .topbar ul { margin: 0 auto; }
+    .topbar ul a { padding: 6px 9px; font-size: .88rem; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: clamp(12px, 3vw, 40px) 0;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .screen {
+    position: relative;
+    border-radius: clamp(14px, 3vw, 34px);
+    overflow: hidden;
+    background: #000;
+    box-shadow:
+      0 0 0 3px #2a1e19,
+      0 0 0 10px #0b0807,
+      0 30px 80px -20px rgba(0,0,0,.9),
+      0 0 120px -30px rgba(240,138,36,.35);
+  }
+  .screen img { display: block; width: 100%; max-width: 100%; height: auto; }
+  .screen::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%);
+    pointer-events: none;
+  }
+  .flicker { animation: flicker 6s infinite; }
+  @keyframes flicker { 0%, 96%, 100% { opacity: 1 } 97% { opacity: .93 } 98% { opacity: 1 } 99% { opacity: .96 } }
+
+  .tagline {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    letter-spacing: .04em;
+    font-size: clamp(1.6rem, 4.6vw, 2.8rem);
+    line-height: 1.05;
+    text-align: center;
+    margin: clamp(28px, 5vw, 48px) auto 8px;
+    max-width: 22ch;
+    color: var(--yellow);
+    text-shadow: 3px 3px 0 var(--red-dark), 6px 6px 0 rgba(0,0,0,.6);
+    transform: rotate(-1.5deg);
+  }
+  .sub {
+    text-align: center;
+    color: var(--muted);
+    margin: 0 auto;
+    max-width: 52ch;
+    padding: 0 8px;
+  }
+
+  /* ---------- Checkered flag ---------- */
+  .checker {
+    height: 18px;
+    margin: clamp(32px, 6vw, 56px) 0;
+    background:
+      conic-gradient(var(--cream) 25%, #111 0 50%, var(--cream) 0 75%, #111 0) 0 0 / 18px 18px;
+    opacity: .9;
+    transform: skewY(-1deg);
+  }
+
+  /* ---------- Downloads ---------- */
+  main { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .section-title {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    letter-spacing: .05em;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin: 0 0 6px;
+    text-align: center;
+    color: var(--cream);
+    text-shadow: 3px 3px 0 var(--red);
+  }
+  .version {
+    text-align: center;
+    color: var(--muted);
+    font-size: .95rem;
+    margin: 0 0 28px;
+    min-height: 1.5em;
+  }
+  .version strong { color: var(--yellow); }
+
+  .downloads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .platform {
+    position: relative;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 22px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .platform h3 {
+    margin: 0;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.35rem; font-weight: 800;
+  }
+  .platform h3 svg { width: 30px; height: 30px; flex: none; }
+
+  .btn {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-weight: 800;
+    box-shadow: 4px 4px 0 #000;
+    transition: transform .12s, box-shadow .12s;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #000; }
+  .btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 #000; }
+  .btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .btn .name { overflow-wrap: anywhere; font-size: .98rem; }
+  .btn .meta { font-weight: 600; font-size: .8rem; opacity: .85; white-space: nowrap; }
+
+  .hint { font-size: .88rem; color: var(--muted); margin: 0; }
+  .hint code { background: #0e0a08; padding: 2px 6px; border-radius: 4px; color: var(--cream); font-size: .85em; }
+
+  /* ---------- Info ---------- */
+  .info {
+    margin-top: clamp(40px, 7vw, 64px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .info article {
+    background: var(--bg-2);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+  }
+  .info h4 { margin: 0 0 6px; font-size: 1.05rem; color: var(--sky); }
+  .info p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+  /* ---------- Changelog ---------- */
+  .release {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 22px;
+    margin-bottom: 14px;
+  }
+  .release summary { cursor: pointer; font-weight: 800; font-size: 1.1rem; color: var(--yellow); }
+  .release ul { margin: 12px 0 4px; padding-left: 20px; color: var(--cream); }
+  .release li { margin: 6px 0; }
+
+  /* ---------- Gameplay ---------- */
+  .feature-title {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    letter-spacing: .05em; font-size: 1.6rem; font-weight: 400;
+    color: var(--yellow); margin: 36px 0 14px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .features article {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .features h4 { margin: 0 0 6px; font-size: 1.05rem; color: var(--cream); }
+  .features p { margin: 0; color: var(--muted); font-size: .94rem; }
+  .features .tag { color: var(--orange); font-weight: 800; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ---------- Requirements ---------- */
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .specs dl {
+    margin: 0;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .specs dt { font-weight: 800; color: var(--yellow); font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; }
+  .specs dd { margin: 2px 0 14px; color: var(--cream); }
+  .specs dd:last-child { margin-bottom: 0; }
+  .specs-note { text-align: center; color: var(--muted); font-size: .9rem; margin: 20px auto 0; max-width: 60ch; }
+
+  /* ---------- Screenshots ---------- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+    gap: 16px;
+  }
+  .gallery button {
+    all: unset; cursor: zoom-in;
+    display: block; border-radius: 10px; overflow: hidden;
+    background: var(--card); border: 2px solid var(--line);
+    transition: transform .15s, border-color .15s;
+  }
+  .gallery button:hover { transform: translateY(-3px); border-color: var(--yellow); }
+  .gallery button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .gallery img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .gallery span { display: block; padding: 8px 12px; font-weight: 600; font-size: .9rem; color: var(--muted); }
+
+  .lightbox {
+    border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 92vh;
+  }
+  .lightbox::backdrop { background: rgba(0,0,0,.88); }
+  .lightbox img { display: block; max-width: 96vw; max-height: 84vh; width: auto; height: auto; border-radius: 8px; cursor: zoom-out; }
+  .lightbox p { margin: 8px 0 0; text-align: center; color: var(--cream); font-weight: 600; }
+
+  footer {
+    text-align: center;
+    color: #6f5e50;
+    font-size: .85rem;
+    padding-block: 48px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flicker { animation: none; }
+    .btn, .gallery button { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav aria-label="Sections">
+    <a class="brand" href="#accueil">The Crazy Old Drivers</a>
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#contenu">Contenu</a></li>
+      <li><a href="#telechargement">Téléchargement</a></li>
+      <li><a href="#nouveautes">Nouveautés</a></li>
+      <li><a href="#prerequis">Pré-requis</a></li>
+      <li><a href="#captures">Captures d’écran</a></li>
+    </ul>
+  </nav>
+</div>
+
+<header class="hero" id="accueil">
+  <h1 class="sr-only">The Crazy Old Drivers</h1>
+  <div class="screen flicker">
+    <video src="video/trailer.mp4" poster="img/background.webp" controls preload="none" playsinline
+           style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover"
+           aria-label="Trailer de The Crazy Old Drivers"></video>
+  </div>
+
+  <p class="tagline">Des vieux bolides, des virages, et zéro pitié entre potes.</p>
+  <p class="sub">Un petit jeu de course rétro fait maison. Gratuit, pour Windows, macOS et Linux.</p>
+</header>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="contenu" aria-labelledby="gp-title">
+    <h2 class="section-title" id="gp-title">Contenu</h2>
+
+    <h3 class="feature-title">Modes de jeu</h3>
+    <div class="features">
+      <article>
+        <span class="tag">7 catégories au vote</span>
+        <h4>Championnat</h4>
+        <p>3, 5 ou 7 courses de 3, 5 ou 7 tours. Au départ, les joueurs votent pour la catégorie de véhicule. Finale sur un circuit géant, avec une épreuve surprise.</p>
+      </article>
+      <article>
+        <span class="tag">3 catégories au vote</span>
+        <h4>Super championnat</h4>
+        <p>Hypercar, Moto ou Formule 1 : 5 courses sur les circuits mythiques de la catégorie.</p>
+      </article>
+      <article>
+        <span class="tag">5 catégories au vote</span>
+        <h4>Route folle</h4>
+        <p>Roadster, GT, Hypercar, Moto ou Formule 1 : 3 ou 5 étapes, entre bifurcations, ronds-points, gouffres et spirales.</p>
+      </article>
+      <article>
+        <span class="tag">GT imposée</span>
+        <h4>Rallye</h4>
+        <p>5 spéciales sur de vraies routes de montagne, coupées en secteurs à la météo changeante.</p>
+      </article>
+    </div>
+
+    <h3 class="feature-title">Catégories de véhicules</h3>
+    <div class="features">
+      <article><h4>Classique</h4><p>Équilibrée. À la campagne.</p></article>
+      <article><h4>Roadster</h4><p>Agile, lente en ligne droite. Dans le désert.</p></article>
+      <article><h4>Monster truck</h4><p>Robuste, tout-terrain. Sur les chantiers, bosses et nids-de-poule compris.</p></article>
+      <article><h4>GT</h4><p>Rapide, lourde, glisse. En pleine ville.</p></article>
+      <article><h4>Hypercar</h4><p>Rapide, solide, vive en virage. Endurance en forêt, devant une foule immense.</p></article>
+      <article><h4>Moto</h4><p>Explosive, agile, très fragile. Sur les collines, couchée dans les virages.</p></article>
+      <article><h4>Formule 1</h4><p>Très rapide, fragile. Entre paddock et projecteurs.</p></article>
+    </div>
+
+    <h3 class="feature-title">Météo, jour et nuit</h3>
+    <div class="features">
+      <article><h4>Jour ou nuit</h4><p>Au choix, ou tiré au sort à chaque course.</p></article>
+      <article><h4>Épreuves surprises</h4><p>Tempête, neige, brouillard, tempête de sable, vent latéral, séisme ou panne de courant.</p></article>
+      <article><h4>Pluie et brouillard</h4><p>En super championnat et en Rallye, la météo peut tourner en pleine course.</p></article>
+    </div>
+
+    <h3 class="feature-title">Circuits mythiques</h3>
+    <div class="features">
+      <article><h4>Les légendes du sport mécanique</h4><p>Le Mans, Monaco, Mugello, Pikes Peak… et bien d’autres encore.</p></article>
+      <article><h4>Et plus de 30 circuits maison</h4><p>Sauts, tunnels, raccourcis, virages relevés, et 5 circuits géants.</p></article>
+    </div>
+    <div class="gallery" style="margin-top: 16px">
+      <button type="button"><img src="img/screens/monaco-tunnel.webp" width="1280" height="720" loading="lazy" alt="Formules 1 à la sortie du tunnel de Monaco, le long du port"><span>Monaco · sortie du tunnel et le port</span></button>
+      <button type="button"><img src="img/screens/spa-eau-rouge.webp" width="1280" height="720" loading="lazy" alt="Formules 1 dans le raidillon de l’Eau Rouge à Spa"><span>Spa · le raidillon de l’Eau Rouge</span></button>
+      <button type="button"><img src="img/screens/le-mans-hunaudieres.webp" width="1280" height="720" loading="lazy" alt="Hypercars dans la ligne droite des Hunaudières au Mans"><span>Le Mans · les Hunaudières</span></button>
+      <button type="button"><img src="img/screens/pikes-peak-summit.webp" width="1280" height="720" loading="lazy" alt="GT dans les épingles du sommet de Pikes Peak"><span>Pikes Peak · les épingles du sommet</span></button>
+    </div>
+
+    <h3 class="feature-title">Des routes folles</h3>
+    <div class="features">
+      <article><h4>Ça tourne et ça saute</h4><p>Ronds-points, routes en spirale, loopings et gouffres à franchir d’un bond.</p></article>
+      <article><h4>Et ça ne s’arrête jamais</h4><p>Des chicanes à slalomer et des trains : quand les feux clignotent, mieux vaut freiner.</p></article>
+    </div>
+    <div class="gallery" style="margin-top: 16px">
+      <button type="button"><img src="img/screens/route-rond-point.webp" width="1280" height="720" loading="lazy" alt="Voitures sur l’anneau d’un rond-point, une route barrée à la sortie"><span>Au rond-point, prendre la sortie… ah non, pas celle-là</span></button>
+      <button type="button"><img src="img/screens/route-spirale.webp" width="1280" height="720" loading="lazy" alt="Hypercars à l’attaque d’une route en spirale qui s’enroule sur elle-même"><span>L’ingénieur avait le vertige, pas le plan</span></button>
+      <button type="button"><img src="img/screens/route-gouffre.webp" width="1280" height="720" loading="lazy" alt="Voitures en plein saut au-dessus d’un gouffre qui coupe la route"><span>Le pont est en travaux. Depuis 1974.</span></button>
+      <button type="button"><img src="img/screens/route-looping.webp" width="1280" height="720" loading="lazy" alt="Formules 1 dans un looping"><span>Le code de la route ne dit rien là-dessus</span></button>
+      <button type="button"><img src="img/screens/route-chicane.webp" width="1280" height="720" loading="lazy" alt="Motos entre les blocs d’une chicane, le long du port"><span>Vue sur la mer, à ne surtout pas regarder</span></button>
+      <button type="button"><img src="img/screens/route-train.webp" width="1280" height="720" loading="lazy" alt="Voitures arrêtées devant un passage à niveau pendant que le train traverse la route"><span>Le train a toujours priorité. Toujours.</span></button>
+    </div>
+
+    <h3 class="feature-title">Et aussi</h3>
+    <div class="features">
+      <article><h4>Boutique</h4><p>Améliore l’adhérence, le turbo et la vitesse max. Achète des boosts : nitro, pneus tout-temps, ancre, bouclier.</p></article>
+      <article><h4>Pièges</h4><p>Huile, flaques et tornade. Un mur pris trop fort, et l’hélico doit venir déposer une voiture neuve.</p></article>
+      <article><h4>Multijoueur</h4><p>Jusqu’à 4 joueurs en ligne, au clavier ou à la manette.</p></article>
+      <article><h4>Challenges et succès</h4><p>De nombreux défis à relever : plus de 50 succès à débloquer, records et statistiques solo et en ligne.</p></article>
+    </div>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="telechargement" aria-labelledby="dl-title">
+    <h2 class="section-title" id="dl-title">Télécharger</h2>
+    <p class="version">Version <strong>v1.10.0</strong> · publiée le 14 novembre 2026</p>
+
+    <div class="downloads">
+      <div class="platform">
+        <h3>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#7fb2d9" d="M3 5.5 10.5 4.4v7.1H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg>
+          Windows
+        </h3>
+        <a class="btn" href="https://github.com/nonchergentchef/the-crazy-old-drivers-releases/releases/latest/download/TheCrazyOldDrivers-windows.zip">
+          <span class="name">TheCrazyOldDrivers-windows.zip</span><span class="meta">75,1 Mo ↓</span>
+        </a>
+        <p class="hint">Si Windows affiche un écran bleu « SmartScreen », clique sur <em>Informations complémentaires</em> puis <em>Exécuter quand même</em>.</p>
+      </div>
+
+      <div class="platform">
+        <h3>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#d8d8d8" d="M16.4 12.7c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.2-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.5 1-1.4 1.3-2.8 1.4-2.8-.1 0-2.7-1-2.7-4.2zM13.9 5.1c.7-.8 1.1-1.9 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>
+          macOS
+        </h3>
+        <a class="btn" href="https://github.com/nonchergentchef/the-crazy-old-drivers-releases/releases/latest/download/TheCrazyOldDrivers-macos.zip">
+          <span class="name">TheCrazyOldDrivers-macos.zip</span><span class="meta">96,5 Mo ↓</span>
+        </a>
+        <p class="hint">Le jeu n’est pas signé par Apple : au premier lancement, macOS le bloque. Ouvre <em>Réglages système → Confidentialité et sécurité</em> puis <em>Ouvrir quand même</em>. Ou dans le Terminal : <code>xattr -dr com.apple.quarantine "The Crazy Old Drivers.app"</code></p>
+      </div>
+
+      <div class="platform">
+        <h3>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f7b733" d="M12 2c-2 0-3.3 1.7-3.3 4.2 0 1.3.3 2.2-.4 3.4C7 11.5 5.5 13.6 5.5 16c0 .8.2 1.5.5 2.1-.6.3-1.4.6-1.4 1.3 0 1 1.6 1.2 3 1.6 1 .3 1.7 1 2.6 1 .7 0 1.2-.4 1.8-.4s1.1.4 1.8.4c.9 0 1.6-.7 2.6-1 1.4-.4 3-.6 3-1.6 0-.7-.8-1-1.4-1.3.3-.6.5-1.3.5-2.1 0-2.4-1.5-4.5-2.8-6.4-.7-1.2-.4-2.1-.4-3.4C15.3 3.7 14 2 12 2zm-1.3 3.4c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1zm2.6 0c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1zM12 8.2c.9 0 1.9.5 1.9.9s-1 1-1.9 1-1.9-.6-1.9-1 1-.9 1.9-.9z"/></svg>
+          Linux
+        </h3>
+        <a class="btn" href="https://github.com/nonchergentchef/the-crazy-old-drivers-releases/releases/latest/download/TheCrazyOldDrivers-linux.zip">
+          <span class="name">TheCrazyOldDrivers-linux.zip</span><span class="meta">65,9 Mo ↓</span>
+        </a>
+        <p class="hint">Après extraction, rends le jeu exécutable : <code>chmod +x</code> sur le binaire, puis lance-le.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" aria-label="Infos">
+    <article>
+      <h4>Gratuit et sans installeur</h4>
+      <p>Tu télécharges, tu décompresses, tu joues. Rien à configurer.</p>
+    </article>
+    <article>
+      <h4>Toujours à jour</h4>
+      <p>Les boutons pointent automatiquement vers la dernière version publiée.</p>
+    </article>
+    <article>
+      <h4>Fait pour les copains</h4>
+      <p>Un jeu développé pour le plaisir. Les retours et les records sont les bienvenus.</p>
+    </article>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="nouveautes" aria-labelledby="news-title">
+    <h2 class="section-title" id="news-title">Nouveautés</h2>
+    <details class="release" open><summary>v1.10.0 — 14 novembre 2026</summary><ul><li>Boosts façon pierre-feuille-ciseaux : chaque protection contre une attaque. Pneus tout-temps contre Flaque d'huile, Ancre contre Bourrasque, Bouclier contre Bélier. Un contre réussi rapporte +50 $ et fait CLANG.</li><li>Deux nouvelles attaques : la Flaque d'huile, lâchée derrière soi, et la Bourrasque, qui pousse sur le côté les voitures devant.</li><li>La Nitro n'est plus vendue au garage, on la ramasse seulement sur la piste. Le Ressort disparaît.</li><li>Même prix dans chaque rangée : 100 $ les protections, 150 $ les attaques. En ligne, les protections des adversaires sont cachées.</li><li>Le Bouclier sauve aussi d'un train : la voiture est éjectée hors des voies au lieu d'être détruite.</li><li>Les voitures de l'IA ramassent aussi les clés et l'argent quand elles passent dessus.</li><li>Compteur de vitesse et compte-tours en bas à droite pendant la course, avec un style propre à chaque catégorie de voiture.</li></ul></details>
+    <details class="release"><summary>v1.9.3 — 13 novembre 2026</summary><ul><li>En ligne : les joueurs connectés n'ont plus de saccades. Toutes les voitures, la leur comprise, avancent maintenant de façon fluide, même sur une connexion Internet.</li><li>En ligne : moins de données échangées pendant la course. L'hôte et les joueurs doivent tous passer à cette version pour jouer ensemble.</li></ul></details>
+    <details class="release"><summary>v1.9.2 — 13 novembre 2026</summary><ul><li>Garage : 2 boosts offensifs maximum par course (Nitro, Ressort, Bélier) au lieu de 3. L'argent restant peut aller aux protections.</li><li>Crépuscule : retiré du super championnat Hypercar, une série sur circuit. Il reste possible en rallye et sur la Route folle.</li><li>Le loup hurle de façon plus effrayante au crépuscule, avec un écho dans la forêt.</li><li>Manette : dans les options, gauche / droite passe d'un onglet à l'autre et bas entre dans les réglages. Vidéo et Audio sont de nouveau accessibles.</li></ul></details>
+    <details class="release"><summary>v1.9.1 — 13 novembre 2026</summary><ul><li>Options rangées en quatre onglets : Général, Vidéo, Audio, Contrôles.</li><li>Musique : volumes séparés pour le menu et la course (+ / − règlent celle qui joue). La musique de course est plus forte et ne baisse plus quand le commentateur parle.</li><li>Audio : un haut-parleur à côté de chaque réglage fait écouter un extrait de 5 secondes.</li><li>Eau animée : mer turquoise le long des quais avec écume, vaguelettes et reflets ; courant et écume sur les rivières ; lacs et oasis qui ondulent.</li><li>Ports : des yachts et des voiliers amarrés le long des quais, en plusieurs couleurs.</li><li>En ligne : l'adresse affichée quand on héberge est maintenant la bonne, même avec un VPN, Docker ou une machine virtuelle sur le PC.</li><li>Correction : les vaches et les piétons ne tournent plus sur eux-mêmes quand ils sont coincés entre des arbres.</li></ul></details>
+    <details class="release"><summary>v1.9.0 — 13 novembre 2026</summary><ul><li>Nouveau : un commentateur au micro. En ligne, quelques surprises entre habitués…</li><li>Départ : un portique de feux au-dessus de la ligne remplace le compte à rebours.</li><li>Tempête : le cercle d'impact de la foudre est deux fois plus petit.</li><li>Crépuscule : des panneaux « passage d'animaux » préviennent avant les traversées, et des sangliers se mêlent aux cerfs.</li></ul></details>
+    <details class="release"><summary>v1.8.9 — 11 novembre 2026</summary><ul><li>Départ : les voitures sont maintenant décalées une par une sur la grille (positions 1, 2, 3, 4), avec un marquage au sol comme sur un vrai circuit.</li><li>Panne de courant : quand les lampadaires s'éteignent, la nuit devient noire et les phares portent moins loin.</li><li>Séisme : pendant les secousses, les voitures perdent de l'adhérence et sont bousculées, sous un grondement sourd.</li><li>Crépuscule : à la nuit tombée, un loup hurle au loin et des cerfs traversent la route ; les percuter fait tourner la voiture et la ralentit.</li><li>Canicule : des plaques de goudron fondu apparaissent sur la route et freinent les voitures. Tempête de sable : des congères de sable font de même.</li><li>Route folle : chevrons d'alerte plus nombreux et progressifs avant les ronds-points et les ravins, flèches en dégradé jaune → rouge avant les terre-pleins et chicanes.</li></ul></details>
+    <details class="release"><summary>v1.8.8 — 11 novembre 2026</summary><ul><li>Tempête : la foudre vise maintenant les voitures. Un cercle grésillant s'allume au sol juste avant l'impact : la voiture qui s'y trouve quand l'éclair tombe perd l'accélérateur pendant 1 seconde. IA comprises, en ligne aussi.</li><li>Tunnels : le moteur résonne et s'étouffe sous la voûte, pour toutes les catégories.</li><li>Correction d'un plantage possible à la création de certains circuits sans voie ferrée possible.</li></ul></details>
+    <details class="release"><summary>v1.8.7 — 11 novembre 2026</summary><ul><li>Nouvelle option « Course pure », dans tous les modes : ni améliorations ni boosts, pas de clés ni d'argent sur le circuit (la nitro reste), et on enchaîne les courses sans passer par le garage. Les IA n'ont aucune amélioration non plus.</li><li>Records de Course pure séparés, affichés sous les records normaux dans le Hall of fame, désormais déroulant et accessible à la manette.</li><li>Écran de partie réorganisé : en ligne, les joueurs et adresses à gauche, les réglages à droite ; en solo, les réglages seuls au centre. Les réglages inutiles pour le format choisi sont masqués.</li><li>Motos et F1 : son moteur plus grave et plus vivant, avec plus de rapports, des baisses de régime en virage et de légères variations.</li><li>Route folle : plus de mur invisible en passant d'une route à l'autre d'une fourche.</li></ul></details>
+    <details class="release"><summary>v1.8.6 — 11 novembre 2026</summary><ul><li>Options : nouveau réglage du volume des moteurs, séparé de la musique et des effets (50 % par défaut).</li><li>Le réglage Effets règle désormais tout sauf les moteurs et la musique.</li></ul></details>
+    <details class="release"><summary>v1.8.5 — 11 novembre 2026</summary><ul><li>Sons des véhicules : un moteur par voiture et par catégorie, qui monte dans les tours et passe ses six vitesses.</li><li>Pneus qui crissent en dérapage (gravier sur terre), chocs contre les murs et accidents, entendus en ligne aussi.</li><li>Trains : le train à vapeur siffle et halète en approchant, le TGV klaxonne aux passages à niveau.</li><li>Vent latéral redessiné : bourrasques façon BD avec feuilles et poussière, manche à air à la place de la jauge, et le vent qui souffle plus fort dans les rafales.</li><li>Le vent revient dans les tirages météo des championnats (de jour) et arrive dans les tronçons de la Route folle.</li><li>La fumée des dérapages est emportée par le vent.</li><li>Tempête : un coup de tonnerre à chaque éclair.</li><li>Feux d'artifice : une détonation par fusée.</li></ul></details>
+    <details class="release"><summary>v1.8.4 — 11 novembre 2026</summary><ul><li>Arrivée : ta place (1er, 2ème…) s'affiche en grand dès que tu passes la ligne, comme le compte à rebours.</li><li>Nouveau drapeau à damier, agité par un commissaire comme à l'arrivée d'un Grand Prix.</li><li>Confettis à l'arrivée pour le podium, feux d'artifice en plus pour le vainqueur.</li><li>Arrivées groupées : drapeau et fête durent au moins 4 secondes après ton arrivée.</li><li>Podium du championnat : feux d'artifice pour le champion, confettis pour le 2ème et le 3ème.</li></ul></details>
+    <details class="release"><summary>v1.8.3 — 11 novembre 2026</summary><ul><li>Route folle : des tornades dans la plupart des secteurs de chaque étape. Elles arrivent toujours face aux voitures.</li><li>L'Ancre devient utile en Route folle.</li></ul></details>
+    <details class="release"><summary>v1.8.2 — 11 novembre 2026</summary><ul><li>Nouveautés dans le jeu : bouton en bas à droite du menu, ou touche Y (clavier et manette).</li><li>Les nouveautés de chaque version sont aussi sur le site de téléchargement.</li></ul></details>
+    <details class="release"><summary>v1.8.1 — 10 novembre 2026</summary><ul><li>Route folle en ligne : la caméra ne dézoome plus d'un coup quand on prend un embranchement.</li><li>Améliorations : prix ramenés à 3, 4, 5, 6 et 7 clés par niveau, pour chaque amélioration.</li><li>Hypercar : moins d'adhérence, elle dérape davantage en virage.</li></ul></details>
+    <details class="release"><summary>v1.8.0 — 10 novembre 2026</summary><ul><li>Nouveau style graphique : voitures, décors, trains, ponts, loopings, météo, menus et interface redessinés avec contours encrés et ombres.</li><li>Deux trains : un TGV et un train à vapeur avec sa fumée.</li><li>Tornade en fausse 3D, vache et tribunes redessinées.</li><li>Route folle : 13 étapes par catégorie (65 au total), chargement 3 fois plus rapide.</li><li>Écran de chargement avec le nom du circuit.</li><li>Améliorations : prix propre à chaque amélioration, gains en proportion des stats de la voiture.</li><li>Hypercar : s'écrase contre un mur au-dessus de 210 au lieu de 240.</li><li>Meilleure fluidité.</li></ul></details>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="prerequis" aria-labelledby="req-title">
+    <h2 class="section-title" id="req-title">Pré-requis</h2>
+    <p class="version">Un PC de bureau ou portable de moins de dix ans fait l’affaire.</p>
+    <div class="specs">
+      <dl>
+        <dt>Système</dt>
+        <dd>Windows 10 ou plus récent, macOS, ou Linux (64 bits)</dd>
+        <dt>Processeur</dt>
+        <dd>Intel ou AMD 64 bits (x86_64). Sur Mac : Intel ou Apple Silicon.</dd>
+        <dt>Espace disque</dt>
+        <dd>Environ 120 Mo</dd>
+      </dl>
+      <dl>
+        <dt>Carte graphique</dt>
+        <dd>Compatible Vulkan : NVIDIA GTX 600, AMD Radeon HD 7000, Intel HD 500 ou plus récente</dd>
+        <dt>Pilotes</dt>
+        <dd>À jour. Sous Linux, pilotes Vulkan installés (Mesa ou NVIDIA).</dd>
+        <dt>Contrôles</dt>
+        <dd>Clavier ou manette. Solo ou multijoueur en ligne.</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="captures" aria-labelledby="shots-title">
+    <h2 class="section-title" id="shots-title">Captures d’écran</h2>
+    <p class="version">Sept catégories de bolides, de jour, de nuit, sous la pluie, la neige ou dans le brouillard.</p>
+    <div class="gallery">
+      <button type="button"><img src="img/screens/classic-day.webp" width="1280" height="720" loading="lazy" alt="Voitures classiques à la campagne, de jour"><span>Classique · campagne, de jour</span></button>
+      <button type="button"><img src="img/screens/classic-snow.webp" width="1280" height="720" loading="lazy" alt="Voitures classiques sous la neige"><span>Classique · sous la neige</span></button>
+      <button type="button"><img src="img/screens/roadster-desert.webp" width="1280" height="720" loading="lazy" alt="Roadsters dans le désert"><span>Roadster · désert</span></button>
+      <button type="button"><img src="img/screens/gt-night.webp" width="1280" height="720" loading="lazy" alt="GT en ville, de nuit"><span>GT · en ville, de nuit</span></button>
+      <button type="button"><img src="img/screens/hypercar-day.webp" width="1280" height="720" loading="lazy" alt="Hypercars entre la forêt et les tribunes"><span>Hypercar · forêt et tribunes</span></button>
+      <button type="button"><img src="img/screens/moto-day.webp" width="1280" height="720" loading="lazy" alt="Motos couchées dans un virage, sur les collines"><span>Moto · sur les collines</span></button>
+      <button type="button"><img src="img/screens/f1-rain.webp" width="1280" height="720" loading="lazy" alt="Formules 1 sous la pluie"><span>Formule 1 · sous la pluie</span></button>
+      <button type="button"><img src="img/screens/f1-night.webp" width="1280" height="720" loading="lazy" alt="Formules 1 de nuit sous les projecteurs"><span>Formule 1 · de nuit</span></button>
+      <button type="button"><img src="img/screens/monster-day.webp" width="1280" height="720" loading="lazy" alt="Monster trucks sur un chantier"><span>Monster truck · chantier</span></button>
+      <button type="button"><img src="img/screens/monster-fog.webp" width="1280" height="720" loading="lazy" alt="Monster trucks dans le brouillard"><span>Monster truck · dans le brouillard</span></button>
+    </div>
+  </section>
+</main>
+
+<dialog class="lightbox" aria-label="Capture d’écran">
+  <img alt="">
+  <p></p>
+</dialog>
+
+<footer>
+  The Crazy Old Drivers · fait maison avec de l’huile de vidange et beaucoup d’amour<br>
+  Tracés des circuits © <a href="https://www.openstreetmap.org/copyright" style="color: inherit">les contributeurs d’OpenStreetMap</a> (ODbL) · altitudes : <a href="https://open-meteo.com/" style="color: inherit">Open-Meteo</a> (CC BY 4.0)
+</footer>
+
+<script>
+  // Screenshots open full size; a click anywhere or Escape closes them.
+  const box = document.querySelector(".lightbox");
+  document.querySelectorAll(".gallery button").forEach(b => b.addEventListener("click", () => {
+    const img = b.querySelector("img");
+    box.querySelector("img").src = img.src;
+    box.querySelector("img").alt = img.alt;
+    box.querySelector("p").textContent = b.querySelector("span").textContent;
+    box.showModal();
+  }));
+  box.addEventListener("click", () => box.close());
+</script>
+
+</body>
+</html>
