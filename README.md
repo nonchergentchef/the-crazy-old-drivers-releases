@@ -4,6 +4,16 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.10.0 — 14 novembre 2026
+
+- Boosts façon pierre-feuille-ciseaux : chaque protection contre une attaque. Pneus tout-temps contre Flaque d'huile, Ancre contre Bourrasque, Bouclier contre Bélier. Un contre réussi rapporte +50 $ et fait CLANG.
+- Deux nouvelles attaques : la Flaque d'huile, lâchée derrière soi, et la Bourrasque, qui pousse sur le côté les voitures devant.
+- La Nitro n'est plus vendue au garage, on la ramasse seulement sur la piste. Le Ressort disparaît.
+- Même prix dans chaque rangée : 100 $ les protections, 150 $ les attaques. En ligne, les protections des adversaires sont cachées.
+- Le Bouclier sauve aussi d'un train : la voiture est éjectée hors des voies au lieu d'être détruite.
+- Les voitures de l'IA ramassent aussi les clés et l'argent quand elles passent dessus.
+- Compteur de vitesse et compte-tours en bas à droite pendant la course, avec un style propre à chaque catégorie de voiture.
+
 ### v1.9.3 — 13 novembre 2026
 
 - En ligne : les joueurs connectés n'ont plus de saccades. Toutes les voitures, la leur comprise, avancent maintenant de façon fluide, même sur une connexion Internet.
