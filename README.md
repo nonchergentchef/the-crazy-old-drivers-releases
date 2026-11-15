@@ -4,6 +4,14 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.11.0 — 15 novembre 2026
+
+- Nouveaux menus en verre sombre : l'accueil devient une grille de tuiles avec icônes (Solo, Multijoueur et Rejoindre en grand, le reste en petit, dont les Nouveautés).
+- Tous les écrans ont le même en-tête (titre et pseudo) et les aides manette en bas. Options, statistiques et onglets prennent le même style.
+- Choix du véhicule : nouveau bouton Retour, accessible à la manette (B) ou au clavier (Échap). En solo, il ramène aux réglages de la course. En ligne, seul l'hôte l'a : il annule les votes et ramène tout le monde au salon, sans perdre la connexion.
+- En ligne : l'hôte ne peut plus lancer la partie tant qu'aucun autre joueur n'a rejoint.
+- Le jeu a maintenant sa propre icône, dans la barre des tâches et sur l'exécutable.
+
 ### v1.10.0 — 14 novembre 2026
 
 - Boosts façon pierre-feuille-ciseaux : chaque protection contre une attaque. Pneus tout-temps contre Flaque d'huile, Ancre contre Bourrasque, Bouclier contre Bélier. Un contre réussi rapporte +50 $ et fait CLANG.
