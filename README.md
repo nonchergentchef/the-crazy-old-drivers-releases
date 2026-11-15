@@ -4,6 +4,15 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.12.0 — 15 novembre 2026
+
+- Le jeu parle anglais : menus, courses, boutique, succès, météo et véhicules traduits, avec un commentateur anglais. Nouvelle option Langue dans l'onglet Général (par défaut, la langue du système).
+- Nouveau réglage Mode avant la course : Arcade (comme avant), Sport (l'ancienne Course pure : ni clés, ni argent, ni garage) et Simulation (Sport sans huile, eau ni tornade, pour les super championnats et le rallye). Chaque mode a ses propres records.
+- Nouveau réglage Météo, activée par défaut : désactivée, plus d'événements météo en championnat et super championnat.
+- Les réglages de course ne bougent plus : ceux imposés par le format restent visibles, grisés, avec leur valeur forcée.
+- La fin de course ne passe plus en noir et blanc : drapeau à damier, confettis et feux d'artifice suffisent.
+- Le site passe en anglais par défaut (page française toujours accessible) et la bande-annonce est refaite, en français et en anglais.
+
 ### v1.11.0 — 15 novembre 2026
 
 - Nouveaux menus en verre sombre : l'accueil devient une grille de tuiles avec icônes (Solo, Multijoueur et Rejoindre en grand, le reste en petit, dont les Nouveautés).
