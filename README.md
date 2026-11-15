@@ -4,6 +4,10 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.12.1 — 15 novembre 2026
+
+- Podium final : la carte « Succès débloqué » ne cache plus la liste des succès débloqués.
+
 ### v1.12.0 — 15 novembre 2026
 
 - Le jeu parle anglais : menus, courses, boutique, succès, météo et véhicules traduits, avec un commentateur anglais. Nouvelle option Langue dans l'onglet Général (par défaut, la langue du système).
