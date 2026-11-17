@@ -4,6 +4,18 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.13.0 — 17 novembre 2026
+
+- Le décor prend du relief : voitures, bâtiments, arbres, bateaux, animaux et rochers ont maintenant du volume.
+- Les ravins ont de la profondeur, et une voiture en plein saut s'élève vraiment au-dessus de la piste.
+- Les roues tournent quand la voiture roule.
+- Départ réussi : accélérez juste avant le feu vert pour partir avec un coup de nitro. Trop tôt, vos roues patinent.
+- Suzuka : la grande roue se voit maintenant depuis la piste.
+- Croisements : plus moyen de couper par l'autre route.
+- Les sauts dans les virages atterrissent bien sur la route.
+- Route folle : à un embranchement, la météo de la route qu'on ne prend pas ne s'affiche plus.
+- En ligne : le jeu est plus fluide.
+
 ### v1.12.1 — 15 novembre 2026
 
 - Podium final : la carte « Succès débloqué » ne cache plus la liste des succès débloqués.
