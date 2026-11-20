@@ -4,6 +4,16 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.14.0 — 20 novembre 2026
+
+- Nouveau format Contre-la-montre : seul en Simulation, de jour, sans météo, IA ni bonus, sur les vrais circuits des super championnats. Les circuits se choisissent dans une liste de cartes (tracé, nom, record), et votre meilleur tour revient en fantôme.
+- Les records du contre-la-montre rejoignent le Panthéon et sont partagés entre amis dans chaque salon : le meilleur temps et son auteur, puis le vôtre.
+- Le fantôme est plus transparent.
+- Sensibilité de la direction : nouveau réglage dans les options des commandes (50 % par défaut). En dessous de 100 %, une touche maintenue tourne de plus en plus au lieu de braquer à fond d'un coup, et un stick tourne plus doucement. En course, les touches 1 et 2 du pavé numérique la baissent ou la montent de 5 %.
+- Les loopings passent en 3D : les voitures montent dedans et passent la tête en bas au sommet.
+- Nouveaux succès : départs parfaits, attaques contrées, records du contre-la-montre battus, et Puriste pour les 3 super championnats gagnés en Simulation.
+- Deux nouvelles musiques de course : Fast Forward Groove et Half-Time Stomp.
+
 ### v1.13.0 — 17 novembre 2026
 
 - Le décor prend du relief : voitures, bâtiments, arbres, bateaux, animaux et rochers ont maintenant du volume.
