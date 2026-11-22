@@ -4,6 +4,14 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.14.1 — 22 novembre 2026
+
+- Nouveau réglage Difficulté de l'IA : Facile, Normal ou Difficile. En ligne, c'est l'hôte qui choisit. Un succès récompense un championnat gagné à chaque niveau.
+- Route folle : nouveaux obstacles, des portions en terre, des gués et des ponts-levis (jamais dans le désert).
+- Pont-levis : il se lève pour laisser passer une péniche qui klaxonne. Barrières, bande stop et chevrons jaune et noir préviennent avant le canal.
+- Orage : la foudre ne frappe plus une voiture sous un tunnel.
+- En ligne : le bouton du garage des invités n'affiche plus le circuit de leur partie précédente.
+
 ### v1.14.0 — 20 novembre 2026
 
 - Nouveau format Contre-la-montre : seul en Simulation, de jour, sans météo, IA ni bonus, sur les vrais circuits des super championnats. Les circuits se choisissent dans une liste de cartes (tracé, nom, record), et votre meilleur tour revient en fantôme.
