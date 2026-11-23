@@ -4,6 +4,11 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.14.2 — 23 novembre 2026
+
+- En ligne : sur le podium, Entrée, Espace et Start de la manette lancent un nouveau championnat au lieu de quitter la partie et de casser le salon.
+- Route folle : une voiture sur un embranchement ne saute plus sur les bosses de terre de la route principale d'à côté.
+
 ### v1.14.1 — 22 novembre 2026
 
 - Nouveau réglage Difficulté de l'IA : Facile, Normal ou Difficile. En ligne, c'est l'hôte qui choisit. Un succès récompense un championnat gagné à chaque niveau.
