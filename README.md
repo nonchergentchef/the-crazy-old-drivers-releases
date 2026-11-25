@@ -4,6 +4,15 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.15.0 — 25 novembre 2026
+
+- Événement de Noël du 1er décembre au 6 janvier : décor enneigé, sapins, bonshommes de neige et cadeaux, nouveau fond de menu.
+- Nouveau format Course de traîneaux, pendant l'événement : des traîneaux tirés par des rennes sur une route de neige tassée, avec glace, congères et rondins dans les virages relevés.
+- Nouveau circuit géant Sapin pour la finale : épingles, raccourci, saut, tunnel et virages relevés, une étoile dorée au sommet.
+- Musique Jingle Bells sur le podium des courses de traîneaux, grelots des rennes en course.
+- Nouveaux succès : Champion de Noël, Calendrier de l'avent et Réveillon.
+- Le menu annonce l'événement quelques jours avant, puis à son ouverture.
+
 ### v1.14.2 — 23 novembre 2026
 
 - En ligne : sur le podium, Entrée, Espace et Start de la manette lancent un nouveau championnat au lieu de quitter la partie et de casser le salon.
