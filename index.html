@@ -1,0 +1,605 @@
+<!doctype html>
+<!-- Download page, published on the public repository's GitHub Pages by .github/workflows/release.yml,
+     which fills in the __PLACEHOLDERS__ and adds img/background.webp from menu/background.png. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Crazy Old Drivers</title>
+<meta name="description" content="A small homemade retro racing game. Free, for Windows, macOS and Linux.">
+<!-- Link previews (Discord, WhatsApp, social networks): crawlers need absolute URLs and a JPEG. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="The Crazy Old Drivers">
+<meta property="og:title" content="The Crazy Old Drivers">
+<meta property="og:description" content="Old rustbuckets, hairpin turns, and zero mercy between friends. A free little retro racing game for Windows, macOS and Linux.">
+<meta property="og:url" content="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/">
+<meta property="og:image" content="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="628">
+<meta property="og:image:alt" content="The Crazy Old Drivers: seven retro racers on a track, checkered flag in the wind">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="fr" href="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/index.fr.html">
+<link rel="alternate" hreflang="en" href="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/">
+<link rel="alternate" hreflang="x-default" href="https://nonchergentchef.github.io/the-crazy-old-drivers-releases/">
+<meta name="theme-color" content="#f7b733">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Archivo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #120d0b;
+    --bg-2: #1d1512;
+    --card: #241a16;
+    --line: #3a2b24;
+    --cream: #f4e6c8;
+    --muted: #b9a68a;
+    --red: #d8302a;
+    --red-dark: #9e1f1b;
+    --yellow: #f7b733;
+    --orange: #f08a24;
+    --blue: #2e6fb5;
+    --sky: #7fb2d9;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    padding-left: max(0px, env(safe-area-inset-left, 0px));
+    padding-right: max(0px, env(safe-area-inset-right, 0px));
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Old TV scanlines over the whole page */
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,.14) 0 1px, transparent 1px 3px);
+    mix-blend-mode: multiply;
+    z-index: 50;
+  }
+  a { color: var(--yellow); }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  section[id], header[id] { scroll-margin-top: 72px; }
+
+  /* ---------- Sticky nav ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(18,13,11,.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 2px solid var(--line);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .topbar nav {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; gap: 8px 20px;
+    padding-block: 10px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .brand {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    font-size: 1.5rem; letter-spacing: .04em;
+    color: var(--yellow); text-decoration: none; white-space: nowrap;
+    text-shadow: 2px 2px 0 var(--red-dark);
+    margin-right: auto;
+  }
+  .topbar ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 4px; overflow-x: auto;
+  }
+  .topbar ul a {
+    display: block; padding: 6px 12px; border-radius: 99px;
+    color: var(--cream); text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap;
+  }
+  .topbar ul a:hover { background: var(--card); color: var(--yellow); }
+  .topbar ul a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 1px; }
+  .lang { display: flex; gap: 2px; flex: none; border: 2px solid var(--line); border-radius: 99px; padding: 2px; }
+  .lang a { padding: 3px 9px; border-radius: 99px; color: var(--muted); text-decoration: none; font-weight: 800; font-size: .8rem; letter-spacing: .04em; }
+  .lang a:hover { color: var(--yellow); }
+  .lang a[aria-current] { background: var(--yellow); color: #120d0b; }
+  .lang a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 1px; }
+  @media (max-width: 640px) {
+    .brand { display: none; }
+    .topbar ul { margin: 0 auto 0 0; }
+    .topbar nav { gap: 8px 10px; }
+    .topbar ul a { padding: 6px 9px; font-size: .88rem; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding-block: clamp(12px, 3vw, 40px) 0;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .screen {
+    position: relative;
+    border-radius: clamp(14px, 3vw, 34px);
+    overflow: hidden;
+    background: #000;
+    box-shadow:
+      0 0 0 3px #2a1e19,
+      0 0 0 10px #0b0807,
+      0 30px 80px -20px rgba(0,0,0,.9),
+      0 0 120px -30px rgba(240,138,36,.35);
+  }
+  .screen img { display: block; width: 100%; max-width: 100%; height: auto; }
+  .screen::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%);
+    pointer-events: none;
+  }
+  .flicker { animation: flicker 6s infinite; }
+  @keyframes flicker { 0%, 96%, 100% { opacity: 1 } 97% { opacity: .93 } 98% { opacity: 1 } 99% { opacity: .96 } }
+
+  .tagline {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    letter-spacing: .04em;
+    font-size: clamp(1.6rem, 4.6vw, 2.8rem);
+    line-height: 1.05;
+    text-align: center;
+    margin: clamp(28px, 5vw, 48px) auto 8px;
+    max-width: 22ch;
+    color: var(--yellow);
+    text-shadow: 3px 3px 0 var(--red-dark), 6px 6px 0 rgba(0,0,0,.6);
+    transform: rotate(-1.5deg);
+  }
+  .sub {
+    text-align: center;
+    color: var(--muted);
+    margin: 0 auto;
+    max-width: 52ch;
+    padding: 0 8px;
+  }
+
+  /* ---------- Checkered flag ---------- */
+  .checker {
+    height: 18px;
+    margin: clamp(32px, 6vw, 56px) 0;
+    background:
+      conic-gradient(var(--cream) 25%, #111 0 50%, var(--cream) 0 75%, #111 0) 0 0 / 18px 18px;
+    opacity: .9;
+    transform: skewY(-1deg);
+  }
+
+  /* ---------- Downloads ---------- */
+  main { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .section-title {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    letter-spacing: .05em;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin: 0 0 6px;
+    text-align: center;
+    color: var(--cream);
+    text-shadow: 3px 3px 0 var(--red);
+  }
+  .version {
+    text-align: center;
+    color: var(--muted);
+    font-size: .95rem;
+    margin: 0 0 28px;
+    min-height: 1.5em;
+  }
+  .version strong { color: var(--yellow); }
+
+  .downloads {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .platform {
+    position: relative;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 22px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .platform h3 {
+    margin: 0;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.35rem; font-weight: 800;
+  }
+  .platform h3 svg { width: 30px; height: 30px; flex: none; }
+
+  .btn {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(180deg, var(--red) 0%, var(--red-dark) 100%);
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-weight: 800;
+    box-shadow: 4px 4px 0 #000;
+    transition: transform .12s, box-shadow .12s;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #000; }
+  .btn:active { transform: translate(3px,3px); box-shadow: 1px 1px 0 #000; }
+  .btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .btn .name { overflow-wrap: anywhere; font-size: .98rem; }
+  .btn .meta { font-weight: 600; font-size: .8rem; opacity: .85; white-space: nowrap; }
+
+  .hint { font-size: .88rem; color: var(--muted); margin: 0; }
+  .hint code { background: #0e0a08; padding: 2px 6px; border-radius: 4px; color: var(--cream); font-size: .85em; }
+
+  /* ---------- Info ---------- */
+  .info {
+    margin-top: clamp(40px, 7vw, 64px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .info article {
+    background: var(--bg-2);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+  }
+  .info h4 { margin: 0 0 6px; font-size: 1.05rem; color: var(--sky); }
+  .info p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+  /* ---------- Changelog ---------- */
+  .release {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 22px;
+    margin-bottom: 14px;
+  }
+  .release summary { cursor: pointer; font-weight: 800; font-size: 1.1rem; color: var(--yellow); }
+  .release ul { margin: 12px 0 4px; padding-left: 20px; color: var(--cream); }
+  .release li { margin: 6px 0; }
+
+  /* ---------- Gameplay ---------- */
+  .feature-title {
+    font-family: "Bangers", Impact, "Arial Black", sans-serif;
+    letter-spacing: .05em; font-size: 1.6rem; font-weight: 400;
+    color: var(--yellow); margin: 36px 0 14px;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .features article {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+  .features h4 { margin: 0 0 6px; font-size: 1.05rem; color: var(--cream); }
+  .features p { margin: 0; color: var(--muted); font-size: .94rem; }
+  .features .tag { color: var(--orange); font-weight: 800; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ---------- Requirements ---------- */
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .specs dl {
+    margin: 0;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+  }
+  .specs dt { font-weight: 800; color: var(--yellow); font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; }
+  .specs dd { margin: 2px 0 14px; color: var(--cream); }
+  .specs dd:last-child { margin-bottom: 0; }
+  .specs-note { text-align: center; color: var(--muted); font-size: .9rem; margin: 20px auto 0; max-width: 60ch; }
+
+  /* ---------- Screenshots ---------- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+    gap: 16px;
+  }
+  .gallery button {
+    all: unset; cursor: zoom-in;
+    display: block; border-radius: 10px; overflow: hidden;
+    background: var(--card); border: 2px solid var(--line);
+    transition: transform .15s, border-color .15s;
+  }
+  .gallery button:hover { transform: translateY(-3px); border-color: var(--yellow); }
+  .gallery button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+  .gallery img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .gallery span { display: block; padding: 8px 12px; font-weight: 600; font-size: .9rem; color: var(--muted); }
+
+  .lightbox {
+    border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 92vh;
+  }
+  .lightbox::backdrop { background: rgba(0,0,0,.88); }
+  .lightbox img { display: block; max-width: 96vw; max-height: 84vh; width: auto; height: auto; border-radius: 8px; cursor: zoom-out; }
+  .lightbox p { margin: 8px 0 0; text-align: center; color: var(--cream); font-weight: 600; }
+
+  footer {
+    text-align: center;
+    color: #6f5e50;
+    font-size: .85rem;
+    padding-block: 48px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flicker { animation: none; }
+    .btn, .gallery button { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <nav aria-label="Sections">
+    <a class="brand" href="#accueil">The Crazy Old Drivers</a>
+    <ul>
+      <li><a href="#accueil">Home</a></li>
+      <li><a href="#contenu">Content</a></li>
+      <li><a href="#telechargement">Download</a></li>
+      <li><a href="#nouveautes">News</a></li>
+      <li><a href="#prerequis">Requirements</a></li>
+      <li><a href="#captures">Screenshots</a></li>
+    </ul>
+    <div class="lang" aria-label="Language">
+      <a href="index.fr.html" lang="fr" hreflang="fr">FR</a>
+      <a href="#" aria-current="true" lang="en" hreflang="en">EN</a>
+    </div>
+  </nav>
+</div>
+
+<header class="hero" id="accueil">
+  <h1 class="sr-only">The Crazy Old Drivers</h1>
+  <div class="screen flicker">
+    <video src="video/trailer.en.mp4" poster="img/background.webp" controls preload="none" playsinline
+           style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover"
+           aria-label="The Crazy Old Drivers trailer"></video>
+  </div>
+
+  <p class="tagline">Old rustbuckets, hairpin turns, and zero mercy between friends.</p>
+  <p class="sub">A small homemade retro racing game. Free, for Windows, macOS and Linux.</p>
+</header>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="contenu" aria-labelledby="gp-title">
+    <h2 class="section-title" id="gp-title">Content</h2>
+
+    <h3 class="feature-title">Game modes</h3>
+    <div class="features">
+      <article>
+        <span class="tag">7 classes to vote on</span>
+        <h4>Championship</h4>
+        <p>3, 5 or 7 races of 3, 5 or 7 laps. Before each race, players vote for the vehicle class. The finale runs on a giant track, with a surprise challenge.</p>
+      </article>
+      <article>
+        <span class="tag">3 classes to vote on</span>
+        <h4>Super Championship</h4>
+        <p>Hypercar, Motorbike or Formula 1: 5 races on the class’s legendary circuits.</p>
+      </article>
+      <article>
+        <span class="tag">5 classes to vote on</span>
+        <h4>Crazy Road</h4>
+        <p>Roadster, GT, Hypercar, Motorbike or Formula 1: 3 or 5 stages of forks, roundabouts, chasms and spirals.</p>
+      </article>
+      <article>
+        <span class="tag">GT only</span>
+        <h4>Rally</h4>
+        <p>5 special stages on real mountain roads, split into sectors with changing weather.</p>
+      </article>
+    </div>
+
+    <h3 class="feature-title">Vehicle classes</h3>
+    <div class="features">
+      <article><h4>Classic</h4><p>Balanced. In the countryside.</p></article>
+      <article><h4>Roadster</h4><p>Nimble, slow on the straights. In the desert.</p></article>
+      <article><h4>Monster truck</h4><p>Tough, off-road. On construction sites, bumps and potholes included.</p></article>
+      <article><h4>GT</h4><p>Fast, heavy, slides around. In the middle of the city.</p></article>
+      <article><h4>Hypercar</h4><p>Fast, sturdy, sharp in corners. Endurance racing in the forest, in front of a huge crowd.</p></article>
+      <article><h4>Motorbike</h4><p>Explosive, agile, very fragile. On the hills, leaning into every corner.</p></article>
+      <article><h4>Formula 1</h4><p>Very fast, fragile. Between paddock and floodlights.</p></article>
+    </div>
+
+    <h3 class="feature-title">Weather, day and night</h3>
+    <div class="features">
+      <article><h4>Day or night</h4><p>Your pick, or drawn at random each race.</p></article>
+      <article><h4>Surprise challenges</h4><p>Thunderstorm, snow, fog, sandstorm, crosswind, earthquake or power outage.</p></article>
+      <article><h4>Rain and fog</h4><p>In the Super Championship and the Rally, the weather can turn mid-race.</p></article>
+    </div>
+
+    <h3 class="feature-title">Legendary circuits</h3>
+    <div class="features">
+      <article><h4>Motorsport legends</h4><p>Le Mans, Monaco, Mugello, Pikes Peak… and many more.</p></article>
+      <article><h4>Plus 30+ homemade tracks</h4><p>Jumps, tunnels, shortcuts, banked turns, and 5 giant tracks.</p></article>
+    </div>
+    <div class="gallery" style="margin-top: 16px">
+      <button type="button"><img src="img/screens/monaco-tunnel.webp" width="1280" height="720" loading="lazy" alt="Formula 1 cars leaving the Monaco tunnel, along the harbour"><span>Monaco · tunnel exit and the harbour</span></button>
+      <button type="button"><img src="img/screens/spa-eau-rouge.webp" width="1280" height="720" loading="lazy" alt="Formula 1 cars climbing Eau Rouge at Spa"><span>Spa · the Eau Rouge climb</span></button>
+      <button type="button"><img src="img/screens/le-mans-hunaudieres.webp" width="1280" height="720" loading="lazy" alt="Hypercars on the Hunaudières straight at Le Mans"><span>Le Mans · the Hunaudières</span></button>
+      <button type="button"><img src="img/screens/pikes-peak-summit.webp" width="1280" height="720" loading="lazy" alt="GT cars in the summit hairpins of Pikes Peak"><span>Pikes Peak · the summit hairpins</span></button>
+    </div>
+
+    <h3 class="feature-title">Crazy roads</h3>
+    <div class="features">
+      <article><h4>It spins and it jumps</h4><p>Roundabouts, spiral roads, loops and chasms to leap across.</p></article>
+      <article><h4>And it never stops</h4><p>Chicanes to weave through and trains: when the lights flash, better brake.</p></article>
+    </div>
+    <div class="gallery" style="margin-top: 16px">
+      <button type="button"><img src="img/screens/route-rond-point.webp" width="1280" height="720" loading="lazy" alt="Cars on a roundabout ring, one exit blocked by a barrier"><span>At the roundabout, take the exit… oh, not that one</span></button>
+      <button type="button"><img src="img/screens/route-spirale.webp" width="1280" height="720" loading="lazy" alt="Hypercars attacking a spiral road that coils around itself"><span>The engineer had vertigo, not a plan</span></button>
+      <button type="button"><img src="img/screens/route-gouffre.webp" width="1280" height="720" loading="lazy" alt="Cars mid-jump over a chasm cutting the road"><span>The bridge is under repair. Since 1974.</span></button>
+      <button type="button"><img src="img/screens/route-looping.webp" width="1280" height="720" loading="lazy" alt="Formula 1 cars in a loop"><span>The highway code says nothing about this</span></button>
+      <button type="button"><img src="img/screens/route-chicane.webp" width="1280" height="720" loading="lazy" alt="Motorbikes between the blocks of a chicane, along the harbour"><span>Sea view. Whatever you do, don’t look.</span></button>
+      <button type="button"><img src="img/screens/route-train.webp" width="1280" height="720" loading="lazy" alt="Cars stopped at a level crossing while the train crosses the road"><span>The train always has right of way. Always.</span></button>
+    </div>
+
+    <h3 class="feature-title">And also</h3>
+    <div class="features">
+      <article><h4>Shop</h4><p>Upgrade grip, turbo and top speed. Buy boosts: all-weather tyres, anchor, shield, ram, oil slick, gust.</p></article>
+      <article><h4>Hazards</h4><p>Oil, puddles and tornado. Hit a wall too hard, and the helicopter has to drop in a brand new car.</p></article>
+      <article><h4>Multiplayer</h4><p>Up to 4 players online, on keyboard or gamepad.</p></article>
+      <article><h4>Challenges and achievements</h4><p>Plenty of goals: 50+ achievements to unlock, plus records and stats, solo and online.</p></article>
+    </div>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="telechargement" aria-labelledby="dl-title">
+    <h2 class="section-title" id="dl-title">Download</h2>
+    <p class="version">Version <strong>v1.16.0</strong> · released November 26, 2026</p>
+
+    <div class="downloads">
+      <div class="platform">
+        <h3>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#7fb2d9" d="M3 5.5 10.5 4.4v7.1H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg>
+          Windows
+        </h3>
+        <a class="btn" href="https://github.com/nonchergentchef/the-crazy-old-drivers-releases/releases/latest/download/TheCrazyOldDrivers-windows.zip">
+          <span class="name">TheCrazyOldDrivers-windows.zip</span><span class="meta">116.7 MB ↓</span>
+        </a>
+        <p class="hint">If Windows shows a blue “SmartScreen” window, click <em>More info</em> then <em>Run anyway</em>.</p>
+      </div>
+
+      <div class="platform">
+        <h3>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#d8d8d8" d="M16.4 12.7c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.6 1.2-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.5 1-1.4 1.3-2.8 1.4-2.8-.1 0-2.7-1-2.7-4.2zM13.9 5.1c.7-.8 1.1-1.9 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>
+          macOS
+        </h3>
+        <a class="btn" href="https://github.com/nonchergentchef/the-crazy-old-drivers-releases/releases/latest/download/TheCrazyOldDrivers-macos.zip">
+          <span class="name">TheCrazyOldDrivers-macos.zip</span><span class="meta">140.8 MB ↓</span>
+        </a>
+        <p class="hint">The game is not signed by Apple: on first launch, macOS blocks it. Open <em>System Settings → Privacy &amp; Security</em> then click <em>Open Anyway</em>. Or in Terminal: <code>xattr -dr com.apple.quarantine "The Crazy Old Drivers.app"</code></p>
+      </div>
+
+      <div class="platform">
+        <h3>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f7b733" d="M12 2c-2 0-3.3 1.7-3.3 4.2 0 1.3.3 2.2-.4 3.4C7 11.5 5.5 13.6 5.5 16c0 .8.2 1.5.5 2.1-.6.3-1.4.6-1.4 1.3 0 1 1.6 1.2 3 1.6 1 .3 1.7 1 2.6 1 .7 0 1.2-.4 1.8-.4s1.1.4 1.8.4c.9 0 1.6-.7 2.6-1 1.4-.4 3-.6 3-1.6 0-.7-.8-1-1.4-1.3.3-.6.5-1.3.5-2.1 0-2.4-1.5-4.5-2.8-6.4-.7-1.2-.4-2.1-.4-3.4C15.3 3.7 14 2 12 2zm-1.3 3.4c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1zm2.6 0c.4 0 .7.5.7 1.1s-.3 1.1-.7 1.1-.7-.5-.7-1.1.3-1.1.7-1.1zM12 8.2c.9 0 1.9.5 1.9.9s-1 1-1.9 1-1.9-.6-1.9-1 1-.9 1.9-.9z"/></svg>
+          Linux
+        </h3>
+        <a class="btn" href="https://github.com/nonchergentchef/the-crazy-old-drivers-releases/releases/latest/download/TheCrazyOldDrivers-linux.zip">
+          <span class="name">TheCrazyOldDrivers-linux.zip</span><span class="meta">107.4 MB ↓</span>
+        </a>
+        <p class="hint">After extracting, make the game executable: <code>chmod +x</code> on the binary, then run it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info" aria-label="Info">
+    <article>
+      <h4>Free, no installer</h4>
+      <p>Download, unzip, play. Nothing to set up.</p>
+    </article>
+    <article>
+      <h4>Always up to date</h4>
+      <p>The buttons automatically point to the latest published version.</p>
+    </article>
+    <article>
+      <h4>Made for friends</h4>
+      <p>A game built for fun. Feedback and records are welcome.</p>
+    </article>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="nouveautes" aria-labelledby="news-title">
+    <h2 class="section-title" id="news-title">News</h2>
+    <details class="release" open><summary>v1.16.0 — November 26, 2026</summary><ul><li>A new event is brewing for next autumn… See you at the end of October.</li><li>Christmas: the champion gets showered with gifts on the podium.</li></ul></details>
+    <details class="release"><summary>v1.15.0 — November 25, 2026</summary><ul><li>Christmas event from December 1 to January 6: snowy decor, Christmas trees, snowmen and gifts, a new menu background.</li><li>New Sleigh Race format during the event: reindeer-drawn sleighs on a road of packed snow, with ice, snowdrifts and logs on the banked turns.</li><li>New giant Christmas Tree track for the final: hairpins, a shortcut, a jump, a tunnel and banked turns, a golden star on top.</li><li>Jingle Bells on the sleigh races podium, reindeer bells during the race.</li><li>New achievements: Christmas Champion, Advent Calendar and Christmas Eve.</li><li>The menu announces the event a few days ahead, then when it opens.</li></ul></details>
+    <details class="release"><summary>v1.14.2 — November 23, 2026</summary><ul><li>Online: on the podium, Enter, Space and the pad's Start begin a new championship instead of leaving the game and breaking the lobby.</li><li>Crazy Road: a car on a branch no longer hops over the dirt bumps of the main road beside it.</li></ul></details>
+    <details class="release"><summary>v1.14.1 — November 22, 2026</summary><ul><li>New AI difficulty setting: Easy, Normal or Hard. Online, the host chooses. An achievement rewards a championship won at each level.</li><li>Crazy Road: new obstacles, dirt stretches, fords and drawbridges (never in the desert).</li><li>Drawbridge: it lifts for a barge sounding its horn. Barriers, a stop band and yellow and black chevrons warn before the canal.</li><li>Storm: lightning no longer strikes a car under a tunnel.</li><li>Online: guests' garage button no longer shows the track from their previous game.</li></ul></details>
+    <details class="release"><summary>v1.14.0 — November 20, 2026</summary><ul><li>New Time trial format: alone in Simulation, by day, with no weather, AI or pickups, on the super championships' real tracks. Tracks are picked from a list of cards (outline, name, record), and your best lap comes back as a ghost.</li><li>Time trial records join the Pantheon and are shared between friends in each lobby: the best time and who set it, then your own.</li><li>The ghost is more see-through.</li><li>Steering sensitivity: a new setting in the controls options (50% by default). Below 100%, a held key turns further and further instead of going to full lock at once, and a stick turns more gently. In a race, keypad 1 and 2 lower or raise it by 5%.</li><li>Loopings go 3D: cars climb in and go upside down at the top.</li><li>New achievements: perfect starts, countered attacks, time trial records beaten, and Purist for the 3 super championships won in Simulation.</li><li>Two new race tracks: Fast Forward Groove and Half-Time Stomp.</li></ul></details>
+    <details class="release"><summary>v1.13.0 — November 17, 2026</summary><ul><li>The scenery stands out: cars, buildings, trees, boats, animals and rocks now have volume.</li><li>Chasms have depth, and a car in mid-jump really rises above the track.</li><li>Wheels turn as the car drives.</li><li>Perfect start: hit the throttle just before the green light to launch with a burst of nitro. Too early and your wheels spin.</li><li>Suzuka: the ferris wheel can now be seen from the track.</li><li>Crossings: no more cutting through the other road.</li><li>Jumps in bends now land on the road.</li><li>Crazy Road: at a fork, the weather of the road not taken no longer shows.</li><li>Online: smoother play.</li></ul></details>
+    <details class="release"><summary>v1.12.1 — November 15, 2026</summary><ul><li>Final podium: the Achievement unlocked card no longer hides the list of unlocked achievements.</li></ul></details>
+    <details class="release"><summary>v1.12.0 — November 15, 2026</summary><ul><li>The game now speaks English: menus, races, shop, achievements, weather and vehicles translated, with an English announcer. New Language option in the General tab (defaults to the system language).</li><li>New Mode setting before the race: Arcade (as before), Sport (no keys, money or garage) and Simulation (Sport without oil, water or tornado, for super championships and rally). Each mode keeps its own records.</li><li>New Weather setting, on by default: turned off, no more weather events in championships and super championships.</li><li>Race settings no longer move around: the ones the format fixes stay visible, greyed out, showing their forced value.</li><li>The end of a race no longer turns black and white: the checkered flag, confetti and fireworks do the job.</li><li>The website is now in English by default (French page still available), with a new trailer in English and French.</li></ul></details>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="prerequis" aria-labelledby="req-title">
+    <h2 class="section-title" id="req-title">Requirements</h2>
+    <p class="version">A desktop or laptop PC less than ten years old will do.</p>
+    <div class="specs">
+      <dl>
+        <dt>System</dt>
+        <dd>Windows 10 or newer, macOS, or Linux (64-bit)</dd>
+        <dt>Processor</dt>
+        <dd>64-bit Intel or AMD (x86_64). On Mac: Intel or Apple Silicon.</dd>
+        <dt>Disk space</dt>
+        <dd>About 120 MB</dd>
+      </dl>
+      <dl>
+        <dt>Graphics card</dt>
+        <dd>Vulkan-compatible: NVIDIA GTX 600, AMD Radeon HD 7000, Intel HD 500 or newer</dd>
+        <dt>Drivers</dt>
+        <dd>Up to date. On Linux, Vulkan drivers installed (Mesa or NVIDIA).</dd>
+        <dt>Controls</dt>
+        <dd>Keyboard or gamepad. Solo or online multiplayer.</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<main>
+  <section id="captures" aria-labelledby="shots-title">
+    <h2 class="section-title" id="shots-title">Screenshots</h2>
+    <p class="version">Seven classes of racers, by day, by night, in rain, snow or fog.</p>
+    <div class="gallery">
+      <button type="button"><img src="img/screens/classic-day.webp" width="1280" height="720" loading="lazy" alt="Classic cars in the countryside, by day"><span>Classic · countryside, by day</span></button>
+      <button type="button"><img src="img/screens/classic-snow.webp" width="1280" height="720" loading="lazy" alt="Classic cars in the snow"><span>Classic · in the snow</span></button>
+      <button type="button"><img src="img/screens/roadster-desert.webp" width="1280" height="720" loading="lazy" alt="Roadsters in the desert"><span>Roadster · desert</span></button>
+      <button type="button"><img src="img/screens/gt-night.webp" width="1280" height="720" loading="lazy" alt="GT cars in the city, at night"><span>GT · city, at night</span></button>
+      <button type="button"><img src="img/screens/hypercar-day.webp" width="1280" height="720" loading="lazy" alt="Hypercars between the forest and the grandstands"><span>Hypercar · forest and grandstands</span></button>
+      <button type="button"><img src="img/screens/moto-day.webp" width="1280" height="720" loading="lazy" alt="Motorbikes leaning into a corner, on the hills"><span>Motorbike · on the hills</span></button>
+      <button type="button"><img src="img/screens/f1-rain.webp" width="1280" height="720" loading="lazy" alt="Formula 1 cars in the rain"><span>Formula 1 · in the rain</span></button>
+      <button type="button"><img src="img/screens/f1-night.webp" width="1280" height="720" loading="lazy" alt="Formula 1 cars at night under floodlights"><span>Formula 1 · at night</span></button>
+      <button type="button"><img src="img/screens/monster-day.webp" width="1280" height="720" loading="lazy" alt="Monster trucks on a construction site"><span>Monster truck · construction site</span></button>
+      <button type="button"><img src="img/screens/monster-fog.webp" width="1280" height="720" loading="lazy" alt="Monster trucks in the fog"><span>Monster truck · in the fog</span></button>
+    </div>
+  </section>
+</main>
+
+<dialog class="lightbox" aria-label="Screenshot">
+  <img alt="">
+  <p></p>
+</dialog>
+
+<footer>
+  The Crazy Old Drivers · homemade with engine oil and lots of love<br>
+  Track layouts © <a href="https://www.openstreetmap.org/copyright" style="color: inherit">OpenStreetMap contributors</a> (ODbL) · elevations: <a href="https://open-meteo.com/" style="color: inherit">Open-Meteo</a> (CC BY 4.0)
+</footer>
+
+<script>
+  // Screenshots open full size; a click anywhere or Escape closes them.
+  const box = document.querySelector(".lightbox");
+  document.querySelectorAll(".gallery button").forEach(b => b.addEventListener("click", () => {
+    const img = b.querySelector("img");
+    box.querySelector("img").src = img.src;
+    box.querySelector("img").alt = img.alt;
+    box.querySelector("p").textContent = b.querySelector("span").textContent;
+    box.showModal();
+  }));
+  box.addEventListener("click", () => box.close());
+</script>
+
+</body>
+</html>
