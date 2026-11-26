@@ -4,6 +4,11 @@ Téléchargement : https://nonchergentchef.github.io/the-crazy-old-drivers-relea
 
 ## Nouveautés
 
+### v1.16.0 — 26 novembre 2026
+
+- Un nouvel événement se prépare pour l'automne prochain… Rendez-vous fin octobre.
+- Noël : le champion reçoit une pluie de cadeaux sur le podium.
+
 ### v1.15.0 — 25 novembre 2026
 
 - Événement de Noël du 1er décembre au 6 janvier : décor enneigé, sapins, bonshommes de neige et cadeaux, nouveau fond de menu.
